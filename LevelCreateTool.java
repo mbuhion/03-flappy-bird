@@ -14,7 +14,9 @@ public class LevelCreateTool {
             // Define dimensions for the new image
             int width = 1024; // Width of the image
             int height = 14; // Height of the image
-            int difficulty = 4; // This is hard coded for now but we can randomize it or change it as levels get hard.
+            Random random = new Random();
+            int upperBound = 6;
+            int difficulty = random.nextInt(); // The new way of difficult. It will be a random difficulty each time from 0 to 5 - Samvel Kazarian
             int centerY = (int)(height / 2) - difficulty; // This is the gap Flappy Bird goes through. Wide is easy.
             int topPipeHeight = 0; // We will generate the random pipes from top and bottom with fixed gap.
             int bottomPipeHeight = 0; // We will generate the random pipes from top and bottom with fixed gap.
@@ -31,9 +33,6 @@ public class LevelCreateTool {
             Color myColor = new Color(11, 234, 154); // This color code in R value of 11 is transparent bg.
             g.setColor(myColor);
             g.fillRect(0, 0, width, height); // Fill the whole map with the RED color code of 11 and any G,B value.
-
-            // Randomly generate Red values for the bars
-            Random random = new Random();
 
             for (int i = 0; i < width; i += pipeDistance) {
 
